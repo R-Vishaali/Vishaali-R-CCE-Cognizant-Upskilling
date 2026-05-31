@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Community Event Portal</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      background-color: #f2f8ff;
+    }
+  </style>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<header id="mainHeader">
+  <h1 style="color: red;">Local Community Event Portal</h1>
+  <p>Register for events and explore community services.</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#events">Events</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#register">Register</a>
+  <a href="help.html" target="_blank">Help</a>
+</nav>
+
+<main>
+
+<section id="home">
+  <div id="welcomeBanner">
+    <h2>Welcome Residents</h2>
+    <p>Special offer:
+      <span class="highlight">
+        Free entry for first 50 users!
+      </span>
+    </p>
+  </div>
+</section>
+
+<section id="events">
+
+  <h2>Upcoming Events</h2>
+
+  <input type="text"
+         id="searchBox"
+         placeholder="Search event by name">
+
+  <select id="categoryFilter">
+    <option value="all">All</option>
+    <option value="music">Music</option>
+    <option value="sports">Sports</option>
+    <option value="workshop">Workshop</option>
+  </select>
+
+  <button id="registerBtn">
+    jQuery Register Button
+  </button>
+
+  <div id="loading">
+    Loading events...
+  </div>
+
+  <div id="eventList"></div>
+
+</section>
+
+<section id="gallery">
+
+  <h2>Event Gallery</h2>
+
+  <table>
+
+    <caption>Past Community Events</caption>
+
+    <tr>
+
+      <td>
+        <img src="Images/music event.jpg"
+             alt="Music Event"
+             title="Music Event"
+             class="gallery-img"
+             ondblclick="enlargeImage(this)">
+        <p>Music Event</p>
+      </td>
+
+      <td>
+        <img src="Images/food festival.jpg"
+             alt="Food Festival"
+             title="Food Festival"
+             class="gallery-img"
+             ondblclick="enlargeImage(this)">
+        <p>Food Festival</p>
+      </td>
+
+      <td>
+        <img src="Images/Sports Day.jpg"
+             alt="Sports Day"
+             title="Sports Day"
+             class="gallery-img"
+             ondblclick="enlargeImage(this)">
+        <p>Sports Day</p>
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>
+        <img src="Images/art workshop.jpg"
+             alt="Art Workshop"
+             title="Art Workshop"
+             class="gallery-img"
+             ondblclick="enlargeImage(this)">
+        <p>Art Workshop</p>
+      </td>
+
+      <td>
+        <img src="Images/health camp.jpg"
+             alt="Health Camp"
+             title="Health Camp"
+             class="gallery-img"
+             ondblclick="enlargeImage(this)">
+        <p>Health Camp</p>
+      </td>
+
+      <td>
+        <img src="Images/tree plantation.jpeg"
+             alt="Tree Plantation"
+             title="Tree Plantation"
+             class="gallery-img"
+             ondblclick="enlargeImage(this)">
+        <p>Tree Plantation</p>
+      </td>
+
+    </tr>
+
+  </table>
+
+</section>
+
+<section id="register">
+
+  <h2>Event Registration Form</h2>
+
+  <form id="registerForm">
+
+    <input type="text"
+           id="name"
+           name="name"
+           placeholder="Enter your name"
+           required
+           autofocus>
+
+    <input type="email"
+           id="email"
+           name="email"
+           placeholder="Enter your email"
+           required>
+
+    <input type="text"
+           id="phone"
+           placeholder="Enter phone number"
+           onblur="validatePhone()"
+           required>
+
+    <input type="date"
+           id="date"
+           required>
+
+    <select id="selectedEvent"
+            name="selectedEvent"
+            required>
+
+      <option value="">Select Event</option>
+
+      <option value="Music Festival">
+        Music Festival
+      </option>
+
+      <option value="Sports Day">
+        Sports Day
+      </option>
+
+      <option value="Art Workshop">
+        Art Workshop
+      </option>
+
+    </select>
+
+    <select id="eventType"
+            onchange="showFee(); savePreference();">
+
+      <option value="">Select Event Type</option>
+      <option value="music">Music</option>
+      <option value="sports">Sports</option>
+      <option value="workshop">Workshop</option>
+
+    </select>
+
+    <p id="feeOutput"></p>
+
+    <textarea id="feedback"
+              placeholder="Enter feedback"
+              onkeydown="countCharacters()"></textarea>
+
+    <p id="charCount">
+      Characters: 0
+    </p>
+
+    <button type="submit">
+      Submit Registration
+    </button>
+
+    <button type="button"
+            onclick="clearPreferences()">
+      Clear Preferences
+    </button>
+
+    <output id="message"></output>
+
+  </form>
+
+</section>
+
+<section>
+
+  <h2>Event Promo Video</h2>
+
+  <video controls
+         width="400"
+         oncanplay="videoReady()">
+
+    <source src="local com video.mp4"
+            type="video/mp4">
+
+    Your browser does not support video.
+
+  </video>
+
+  <p id="videoMessage"></p>
+
+</section>
+
+<section>
+
+  <h2>Find Nearby Events</h2>
+
+  <button onclick="findNearbyEvents()">
+    Find Nearby Events
+  </button>
+
+  <p id="locationOutput"></p>
+
+</section>
+
+<section class="news">
+
+  <h2>Community Bulletin</h2>
+
+  <p>
+    Our community portal helps residents register for events,
+    view locations, check event details, and participate
+    in local programs easily.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>Visibility Example</h2>
+
+  <p class="hiddenBox">
+    This uses visibility hidden.
+  </p>
+
+  <p class="noneBox">
+    This uses display none.
+  </p>
+
+</section>
+
+</main>
+
+<footer id="contact">
+  <p>Contact: community@example.com</p>
+</footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #222;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Header styles */
+#mainHeader {
+  background: linear-gradient(to right, #007BFF, #00BFFF);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+/* Element selector */
+h2 {
+  color: #0056b3;
+  margin: 20px 0 10px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+/* Grouping selector */
+h3, p {
+  margin-bottom: 10px;
+}
+
+/* Navigation styles */
+nav {
+  background-color: #222;
+  padding: 12px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+nav a:link {
+  color: white;
+}
+
+nav a:visited {
+  color: lightgray;
+}
+
+nav a:hover {
+  color: yellow;
+}
+
+nav a:active {
+  color: orange;
+}
+
+nav a {
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+/* Welcome banner */
+#welcomeBanner {
+  background-color: rgba(0, 123, 255, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.highlight {
+  color: red;
+  font-weight: bold;
+}
+
+/* Event card styles */
+.eventCard {
+  background-color: white;
+  border: 2px solid #007BFF;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  outline: 1px solid lightgray;
+}
+
+/* Image gallery */
+.gallery-img {
+  width: 200px;
+  height: 130px;
+  border: 3px solid #007BFF;
+  border-radius: 8px;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+td {
+  border: 1px solid black;
+  padding: 12px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #e6f0ff;
+}
+
+/* Form styles */
+form {
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #007BFF;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid orange;
+}
+
+/* Button styles */
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* List style example */
+ul {
+  list-style-type: square;
+  list-style-position: inside;
+}
+
+/* Multi-column layout */
+.news {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+  margin-top: 20px;
+}
+
+/* visibility vs display */
+.hiddenBox {
+  visibility: hidden;
+}
+
+.noneBox {
+  display: none;
+}
+
+/* Loading */
+#loading {
+  font-weight: bold;
+  color: green;
+}
+
+/* Footer */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .news {
+    column-count: 1;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
